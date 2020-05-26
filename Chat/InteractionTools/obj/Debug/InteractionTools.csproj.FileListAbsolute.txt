@@ -1,0 +1,5 @@
+Y:\Work\KSiS\Chat\InteractionTools\bin\Debug\InteractionTools.dll
+Y:\Work\KSiS\Chat\InteractionTools\bin\Debug\InteractionTools.pdb
+Y:\Work\KSiS\Chat\InteractionTools\obj\Debug\InteractionTools.csprojAssemblyReference.cache
+Y:\Work\KSiS\Chat\InteractionTools\obj\Debug\InteractionTools.dll
+Y:\Work\KSiS\Chat\InteractionTools\obj\Debug\InteractionTools.pdb

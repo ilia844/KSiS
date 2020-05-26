@@ -96,6 +96,7 @@
             this.btConnect.TabIndex = 5;
             this.btConnect.Text = "Connect";
             this.btConnect.UseVisualStyleBackColor = false;
+            this.btConnect.Click += new System.EventHandler(this.btConnect_Click);
             // 
             // btDisconnect
             // 
@@ -105,6 +106,7 @@
             this.btDisconnect.TabIndex = 6;
             this.btDisconnect.Text = "Disconnect";
             this.btDisconnect.UseVisualStyleBackColor = true;
+            this.btDisconnect.Click += new System.EventHandler(this.btDisconnect_Click);
             // 
             // label1
             // 
@@ -141,6 +143,7 @@
             this.lbParticipants.Name = "lbParticipants";
             this.lbParticipants.Size = new System.Drawing.Size(251, 228);
             this.lbParticipants.TabIndex = 10;
+            this.lbParticipants.SelectedIndexChanged += new System.EventHandler(this.lbParticipants_SelectedIndexChanged);
             // 
             // lbCurrentDialog
             // 
@@ -176,6 +179,7 @@
             this.btSendMessage.TabIndex = 14;
             this.btSendMessage.Text = "Send";
             this.btSendMessage.UseVisualStyleBackColor = true;
+            this.btSendMessage.Click += new System.EventHandler(this.btSendMessage_Click);
             // 
             // ChatForm
             // 
@@ -201,6 +205,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ChatForm";
             this.Text = "Chat";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

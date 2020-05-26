@@ -1,0 +1,9 @@
+Y:\Work\KSiS\Chat\ChatClient\bin\Debug\ChatClient.exe.config
+Y:\Work\KSiS\Chat\ChatClient\bin\Debug\ChatClient.exe
+Y:\Work\KSiS\Chat\ChatClient\bin\Debug\ChatClient.pdb
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.csprojAssemblyReference.cache
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.ChatForm.resources
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.exe
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.pdb
