@@ -6,8 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractionTools", "InteractionTools\InteractionTools.csproj", "{C3D0960F-6EF7-4941-9F14-E1E6D524278E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "ChatClient\ChatClient.csproj", "{EB1E7AB6-4471-4F8E-A567-1A377C3EA0A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3D0960F-6EF7-4941-9F14-E1E6D524278E} = {C3D0960F-6EF7-4941-9F14-E1E6D524278E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatServer", "ChatServer\ChatServer.csproj", "{7A58FF1D-B527-469D-BF0A-4595995793FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3D0960F-6EF7-4941-9F14-E1E6D524278E} = {C3D0960F-6EF7-4941-9F14-E1E6D524278E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

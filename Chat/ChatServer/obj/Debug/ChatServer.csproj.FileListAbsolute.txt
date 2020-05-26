@@ -1,0 +1,9 @@
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\ChatServer.exe.config
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\ChatServer.exe
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\ChatServer.pdb
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\InteractionTools.dll
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\InteractionTools.pdb
+Y:\Work\KSiS\Chat\ChatServer\obj\Debug\ChatServer.csprojAssemblyReference.cache
+Y:\Work\KSiS\Chat\ChatServer\obj\Debug\ChatServer.csproj.CopyComplete
+Y:\Work\KSiS\Chat\ChatServer\obj\Debug\ChatServer.exe
+Y:\Work\KSiS\Chat\ChatServer\obj\Debug\ChatServer.pdb

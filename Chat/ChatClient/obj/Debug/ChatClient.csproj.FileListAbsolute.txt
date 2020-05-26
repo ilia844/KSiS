@@ -7,3 +7,6 @@ Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
 Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
 Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.exe
 Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.pdb
+Y:\Work\KSiS\Chat\ChatClient\bin\Debug\InteractionTools.dll
+Y:\Work\KSiS\Chat\ChatClient\bin\Debug\InteractionTools.pdb
+Y:\Work\KSiS\Chat\ChatClient\obj\Debug\ChatClient.csproj.CopyComplete
