@@ -7,7 +7,7 @@ namespace ChatServer
         public static Server server = new Server();
         static void Main(string[] args)
         {
-            //server.LoadDB();
+            server.LoadDB();
             server.StartListen();
         }
     }

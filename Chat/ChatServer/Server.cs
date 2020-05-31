@@ -48,6 +48,17 @@ namespace ChatServer
         {
             CommonDialog.MessagesHistory = sqliteManager.GetCommonDialogHistory();
             Clients = sqliteManager.GetClients();
+            Dictionary<int, DialogInfo> privateDialogs;
+            foreach (KeyValuePair<int, Client> client in Clients)
+            {
+                privateDialogs = new Dictionary<int, DialogInfo>();
+                privateDialogs = sqliteManager.GetPrivateDialogs(client.Key, client.Value.Name);
+                foreach (KeyValuePair<int, DialogInfo> dialog in privateDialogs)
+                {
+                    Clients[client.Key].Dialogs.Add(dialog.Key, dialog.Value);
+                }
+            }
+            int i = 0;
         }
 
         public void StartListen()
