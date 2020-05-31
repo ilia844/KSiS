@@ -31,15 +31,23 @@ namespace ChatServer
         public static int MaxClientsAmount = 10;
         public int ConnectionsCount;
         public Dictionary<int, Connection> Connections;
+        private SQLiteManager sqliteManager;
 
         public Server()
         {
+            sqliteManager = new SQLiteManager();
             nodeInformation = new NodeInformation();
             serializer = new Serializer();
             CommonDialog = new DialogInfo("Common dialog", 0);
             Clients = new Dictionary<int, Client>();
             ConnectionsCount = 0;
             Connections = new Dictionary<int, Connection>();
+        }
+
+        public void LoadDB()
+        {
+            CommonDialog.MessagesHistory = sqliteManager.GetCommonDialogHistory();
+            Clients = sqliteManager.GetClients();
         }
 
         public void StartListen()
@@ -58,6 +66,7 @@ namespace ChatServer
                     if (IsNewClient(message.SenderID))
                     {
                         Clients[message.SenderID] = new Client(message.SenderName, connectionID);
+                        sqliteManager.AddClient(message.SenderID, message.SenderName);
                     }
                     else
                     {
@@ -77,6 +86,7 @@ namespace ChatServer
                 case MessageType.CommonMess:
                     message.SenderName = Clients[message.SenderID].Name;
                     SendToAll(message);
+                    sqliteManager.AddMessage("common", message.SenderID, 0, DateTime.Now, message.content);
                     DialogInfoMethods.AddMessage(CommonDialog.MessagesHistory,
                         ref CommonDialog.UnreadMessCount,
                         new ChatMessage(message.SenderID, message.SenderName, message.IP + "  " + message.content, DateTime.Now));
@@ -102,6 +112,7 @@ namespace ChatServer
                         int receiverId = message.Port;
                         message.SenderName = Clients[message.SenderID].Name;
                         SendMessage(message, Connections[Clients[receiverId].ConnectionID].socket);
+                        sqliteManager.AddMessage("private", message.SenderID, receiverId, DateTime.Now, message.content);
                         DialogInfoMethods.AddMessage(Clients[message.SenderID].Dialogs[receiverId].MessagesHistory,
                             ref Clients[message.SenderID].Dialogs[receiverId].UnreadMessCount,
                             new ChatMessage(message.SenderID, "me", message.content, DateTime.Now));

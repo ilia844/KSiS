@@ -17,7 +17,7 @@ namespace ChatServer
             IsConnected = true;
             ConnectionID = connectionId;
             Name = name;
-            Dialogs = new Dictionary<int, DialogInfo>
+            Dialogs = new Dictionary<int, DialogInfo>()
             {
                 { CommonDialogID, Program.server.CommonDialog }
             };

@@ -182,7 +182,8 @@ namespace ChatClient
                 tbName.ReadOnly = tbPassword.ReadOnly = true;
                 btConnect.Enabled = false;
                 btDisconnect.Enabled = true;
-                client.JoinChat(tbName.Text, tbPassword.Text.GetHashCode());
+                int hash = Math.Abs(tbPassword.Text.GetHashCode());
+                client.JoinChat(tbName.Text, Math.Abs(tbPassword.Text.GetHashCode()));
             }
         }
 

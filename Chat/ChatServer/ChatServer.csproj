@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="SQLiteManager.cs" />
     <Compile Include="TCPHandler.cs" />
     <Compile Include="UDPHandler.cs" />
     <Compile Include="Program.cs" />
