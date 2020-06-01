@@ -17,7 +17,7 @@ namespace ChatClient
         public int ClientId;
         const int ServerPort = 8005;
         const int LocalPort = 5555;
-        static int BUFFER_SIZE = 1024; //in bytes
+        static int BUFFER_SIZE = 65500; //in bytes
         public byte[] TempMessageStorage;
         public delegate void HandleMessage(LANMessage message);
         public event HandleMessage MessageReceieved;

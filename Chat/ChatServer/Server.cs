@@ -58,7 +58,6 @@ namespace ChatServer
                     Clients[client.Key].Dialogs.Add(dialog.Key, dialog.Value);
                 }
             }
-            int i = 0;
         }
 
         public void StartListen()

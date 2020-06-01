@@ -18,8 +18,8 @@ namespace ChatServer
         private const string FindName = "SELECT name FROM users WHERE password_hash = @password_hash;";
         private const string InsertNewClient = "INSERT INTO users VALUES(@password_hash, @name);";
         private const string InsertNewMessage = "INSERT INTO messages VALUES(NULL, @type, @id_from, @id_to, @date, @content);";
-        private const string FindReceivers = "SELECT * FROM messages WHERE type = 'private' and id_from = @id_from;";
-        private const string FindPrivateMessages = "SELECT * FROM messages WHERE type = 'private' and id_from = @id_from and id_to = @id_to;";
+        private const string FindReceivers = "SELECT * FROM messages WHERE type = 'private' and (id_from = @id_from or id_to = @id_from);";
+        private const string FindPrivateMessages = "SELECT * FROM messages WHERE type = 'private' and ((id_from = @id_from and id_to = @id_to) or (id_from = @id_to and id_to = @id_from));";
 
         private const string IDParametrName = "@password_hash";
         private const string NameParametrName = "@name";
@@ -63,13 +63,12 @@ namespace ChatServer
 
             using (SQLiteDataReader reader = sqlCommand.ExecuteReader())
             {
-                int connectionID = 1;
                 while (reader.Read())
                 {
+                    int connectionID = reader.GetInt32(IDColumnIndex);
                     Client client = new Client(reader.GetString(NameColumnIndex), connectionID);
                     client.IsConnected = false;
                     clients.Add(reader.GetInt32(IDColumnIndex), client);
-                    connectionID++;
                 }
             }
             return clients;
@@ -114,13 +113,16 @@ namespace ChatServer
             {
                 sqlCommand.Parameters.Clear();
                 sqlCommand.Parameters.AddWithValue(IDFromParametrName, clientID);
-                privateDialogs.Add(receiverId, new DialogInfo(clientName, receiverId));
+                privateDialogs.Add(receiverId, new DialogInfo(GetName(receiverId), receiverId));
                 sqlCommand.Parameters.AddWithValue(IDToParametrName, receiverId);
                 using (SQLiteDataReader reader = sqlCommand.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(clientID, clientName, reader.GetString(ContentColumnIndex), reader.GetDateTime(DateColumnIndex)));
+                        if (reader.GetInt32(FromIDColumnIndex) == clientID)
+                            privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(clientID, clientName, reader.GetString(ContentColumnIndex), reader.GetDateTime(DateColumnIndex)));
+                        else
+                            privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(receiverId, GetName(receiverId), reader.GetString(ContentColumnIndex), reader.GetDateTime(DateColumnIndex)));
                     }
                 }
             }
@@ -138,7 +140,15 @@ namespace ChatServer
             {
                 while (reader.Read())
                 {
-                    int receiverId = reader.GetInt32(ToIDColumnIndex);
+                    int receiverId;
+                    if (reader.GetInt32(FromIDColumnIndex) == senderID)
+                    {
+                        receiverId = reader.GetInt32(ToIDColumnIndex);
+                    } 
+                    else
+                    {
+                        receiverId = reader.GetInt32(FromIDColumnIndex);
+                    }
                     if (!IsReceiverExist(receiverId, receiversId))
                         receiversId.Add(receiverId);
                 }
