@@ -133,7 +133,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(324, 9);
+            this.label2.Location = new System.Drawing.Point(540, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(254, 23);
             this.label2.TabIndex = 9;
@@ -144,7 +144,7 @@
             // 
             this.lbParticipants.FormattingEnabled = true;
             this.lbParticipants.ItemHeight = 16;
-            this.lbParticipants.Location = new System.Drawing.Point(327, 32);
+            this.lbParticipants.Location = new System.Drawing.Point(543, 32);
             this.lbParticipants.Name = "lbParticipants";
             this.lbParticipants.Size = new System.Drawing.Size(251, 228);
             this.lbParticipants.TabIndex = 10;
@@ -221,15 +221,15 @@
             // 
             this.lbMessageFiles.FormattingEnabled = true;
             this.lbMessageFiles.ItemHeight = 16;
-            this.lbMessageFiles.Location = new System.Drawing.Point(602, 32);
+            this.lbMessageFiles.Location = new System.Drawing.Point(608, 291);
             this.lbMessageFiles.Name = "lbMessageFiles";
-            this.lbMessageFiles.Size = new System.Drawing.Size(227, 228);
+            this.lbMessageFiles.Size = new System.Drawing.Size(186, 228);
             this.lbMessageFiles.TabIndex = 19;
             this.lbMessageFiles.SelectedIndexChanged += new System.EventHandler(this.lbMessageFiles_SelectedIndexChanged);
             // 
             // btDownloadFile
             // 
-            this.btDownloadFile.Location = new System.Drawing.Point(835, 129);
+            this.btDownloadFile.Location = new System.Drawing.Point(641, 535);
             this.btDownloadFile.Name = "btDownloadFile";
             this.btDownloadFile.Size = new System.Drawing.Size(116, 32);
             this.btDownloadFile.TabIndex = 20;
@@ -242,7 +242,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1156, 623);
+            this.ClientSize = new System.Drawing.Size(820, 623);
             this.Controls.Add(this.btDownloadFile);
             this.Controls.Add(this.lbMessageFiles);
             this.Controls.Add(this.btRemoveFile);
