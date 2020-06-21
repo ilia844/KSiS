@@ -83,7 +83,7 @@ namespace ChatServer
             {
                 while (reader.Read())
                 {
-                    ChatMessage message = new ChatMessage(reader.GetInt32(FromIDColumnIndex), GetName(reader.GetInt32(FromIDColumnIndex)), reader.GetString(ContentColumnIndex), reader.GetDateTime(DateColumnIndex));
+                    ChatMessage message = new ChatMessage(reader.GetInt32(FromIDColumnIndex), GetName(reader.GetInt32(FromIDColumnIndex)), reader.GetString(ContentColumnIndex), new List<int>(), reader.GetDateTime(DateColumnIndex));
                     messageHistory.Add(message);
                 }
             }
@@ -120,9 +120,9 @@ namespace ChatServer
                     while (reader.Read())
                     {
                         if (reader.GetInt32(FromIDColumnIndex) == clientID)
-                            privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(clientID, clientName, reader.GetString(ContentColumnIndex), reader.GetDateTime(DateColumnIndex)));
+                            privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(clientID, clientName, reader.GetString(ContentColumnIndex), new List<int>(), reader.GetDateTime(DateColumnIndex)));
                         else
-                            privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(receiverId, GetName(receiverId), reader.GetString(ContentColumnIndex), reader.GetDateTime(DateColumnIndex)));
+                            privateDialogs[receiverId].MessagesHistory.Add(new ChatMessage(receiverId, GetName(receiverId), reader.GetString(ContentColumnIndex), new List<int>(), reader.GetDateTime(DateColumnIndex)));
                     }
                 }
             }

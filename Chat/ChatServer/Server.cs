@@ -76,7 +76,7 @@ namespace ChatServer
                     if (IsNewClient(message.SenderID))
                     {
                         Clients[message.SenderID] = new Client(message.SenderName, connectionID);
-                        sqliteManager.AddClient(message.SenderID, message.SenderName);
+                        //sqliteManager.AddClient(message.SenderID, message.SenderName);
                     }
                     else
                     {
@@ -96,10 +96,10 @@ namespace ChatServer
                 case MessageType.CommonMess:
                     message.SenderName = Clients[message.SenderID].Name;
                     SendToAll(message);
-                    sqliteManager.AddMessage("common", message.SenderID, 0, DateTime.Now, message.content);
+                    //sqliteManager.AddMessage("common", message.SenderID, 0, DateTime.Now, message.content);
                     DialogInfoMethods.AddMessage(CommonDialog.MessagesHistory,
                         ref CommonDialog.UnreadMessCount,
-                        new ChatMessage(message.SenderID, message.SenderName, message.IP + "  " + message.content, DateTime.Now));
+                        new ChatMessage(message.SenderID, message.SenderName, /*message.IP + "  " +*/ message.content, message.AttachedFiles, DateTime.Now));
                     break;
                 case MessageType.UDPRequest:
                     Console.WriteLine("request");
@@ -122,13 +122,13 @@ namespace ChatServer
                         int receiverId = message.Port;
                         message.SenderName = Clients[message.SenderID].Name;
                         SendMessage(message, Connections[Clients[receiverId].ConnectionID].socket);
-                        sqliteManager.AddMessage("private", message.SenderID, receiverId, DateTime.Now, message.content);
+                        //sqliteManager.AddMessage("private", message.SenderID, receiverId, DateTime.Now, message.content);
                         DialogInfoMethods.AddMessage(Clients[message.SenderID].Dialogs[receiverId].MessagesHistory,
                             ref Clients[message.SenderID].Dialogs[receiverId].UnreadMessCount,
-                            new ChatMessage(message.SenderID, "me", message.content, DateTime.Now));
+                            new ChatMessage(message.SenderID, "me", message.content, message.AttachedFiles, DateTime.Now));
                         DialogInfoMethods.AddMessage(Clients[receiverId].Dialogs[message.SenderID].MessagesHistory,
                             ref Clients[receiverId].Dialogs[message.SenderID].UnreadMessCount,
-                            new ChatMessage(message.SenderID, message.SenderName, message.content, DateTime.Now));
+                            new ChatMessage(message.SenderID, message.SenderName, message.content, message.AttachedFiles, DateTime.Now));
                     }
                     break;
             }

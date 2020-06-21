@@ -10,3 +10,5 @@ Y:\Work\KSiS\Chat\ChatServer\obj\Debug\ChatServer.pdb
 Y:\Work\KSiS\Chat\ChatServer\bin\Debug\System.Data.SQLite.dll
 Y:\Work\KSiS\Chat\ChatServer\bin\Debug\System.Data.SQLite.xml
 Y:\Work\KSiS\Chat\ChatServer\bin\Debug\System.Data.SQLite.dll.config
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\FileStoringService.dll
+Y:\Work\KSiS\Chat\ChatServer\bin\Debug\FileStoringService.pdb

@@ -1,0 +1,5 @@
+Y:\Work\KSiS\Chat\FileStoringService\obj\Debug\FileStoringService.csprojAssemblyReference.cache
+Y:\Work\KSiS\Chat\FileStoringService\bin\Debug\FileStoringService.dll
+Y:\Work\KSiS\Chat\FileStoringService\bin\Debug\FileStoringService.pdb
+Y:\Work\KSiS\Chat\FileStoringService\obj\Debug\FileStoringService.dll
+Y:\Work\KSiS\Chat\FileStoringService\obj\Debug\FileStoringService.pdb

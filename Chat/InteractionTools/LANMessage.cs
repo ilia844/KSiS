@@ -15,19 +15,30 @@ namespace InteractionTools
         public string IP;
         public string content;
         public List<DialogInfo> Dialogs;
-        public LANMessage(MessageType messType, int senderId, int receiverId, string ip, string cont)
+        public List<int> AttachedFiles;
+        public LANMessage(MessageType messType, int senderId, int receiverId, string ip, string cont, List<int> files)//Приватное сообщение
         {
             messageType = messType;
             SenderID = senderId;
             Port = receiverId;
             IP = ip;
             content = cont;
+            AttachedFiles = files;
         }
         public LANMessage(MessageType messType, string ip, int port)
         {
             messageType = messType;
             Port = port;
             IP = ip;
+        }
+        public LANMessage(MessageType messType, string cont, int senderId, string ip, List<int> files)//Общее сообщение
+        {
+            messageType = messType;
+            SenderName = cont;
+            content = cont;
+            SenderID = senderId;
+            IP = ip;
+            AttachedFiles = files;
         }
         public LANMessage(MessageType messType, string cont, int senderId, string ip)
         {

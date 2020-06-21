@@ -1,0 +1,76 @@
+--9838cd12-ca33-4ebf-9662-d58d74d8ed7d
+Content-Disposition: form-data
+
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  TList=^TListItem;
+  TListItem=record
+    Next:TList;
+    Name:string;
+  end;
+
+var
+  Head:TList;
+  k, comand:LongInt;
+  readStr:String;
+
+procedure InsertContact(Head:TList; value:String);
+var
+  Q, Current:TList;
+  s:string;
+begin
+
+  New(Q);
+  q^.Name:=value;
+  Current:=Head;
+  while (Current^.Next<>nil) and (Current^.Next^.Name<Q^.Name) do
+  begin
+    Current:=Current^.Next;
+  end;
+  Q^.Next:=Current^.Next;
+  Current^.Next:=Q;
+end;
+
+procedure Print(Head:TList);
+var
+  Current:TList;
+begin
+  Current:=Head;
+  while Current^.Next<>nil do
+  begin
+    write(current^.Name,' ');
+    Current:=Current^.Next;
+  end;
+  write(current^.Name,' ');
+end;
+
+begin
+   New(Head);
+  Head^.Next:=nil;
+  readln(readStr);
+  while(readStr<>'') do
+  begin
+  InsertContact(Head, readStr);
+  readln(readStr);
+  end;
+  print(head);
+  writeln;
+  readln(readStr);
+   while(readStr<>'') do
+  begin
+  InsertContact(Head, readStr);
+  readln(readStr);
+  print(head);
+  writeln;
+  end;
+  readln;
+end.
+--9838cd12-ca33-4ebf-9662-d58d74d8ed7d--

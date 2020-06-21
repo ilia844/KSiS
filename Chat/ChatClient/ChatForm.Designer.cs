@@ -40,9 +40,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbParticipants = new System.Windows.Forms.ListBox();
             this.lbCurrentDialog = new System.Windows.Forms.Label();
-            this.tbChatContent = new System.Windows.Forms.RichTextBox();
             this.tbMessageContent = new System.Windows.Forms.RichTextBox();
             this.btSendMessage = new System.Windows.Forms.Button();
+            this.lbChatContent = new System.Windows.Forms.ListBox();
+            this.lbAttachedFiles = new System.Windows.Forms.ListBox();
+            this.btLoadFile = new System.Windows.Forms.Button();
+            this.btRemoveFile = new System.Windows.Forms.Button();
+            this.lbMessageFiles = new System.Windows.Forms.ListBox();
+            this.btDownloadFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbName
@@ -154,18 +159,9 @@
             this.lbCurrentDialog.Text = "Not connected";
             this.lbCurrentDialog.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // tbChatContent
-            // 
-            this.tbChatContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.tbChatContent.Location = new System.Drawing.Point(27, 289);
-            this.tbChatContent.Name = "tbChatContent";
-            this.tbChatContent.Size = new System.Drawing.Size(551, 205);
-            this.tbChatContent.TabIndex = 12;
-            this.tbChatContent.Text = "";
-            // 
             // tbMessageContent
             // 
-            this.tbMessageContent.Location = new System.Drawing.Point(27, 493);
+            this.tbMessageContent.Location = new System.Drawing.Point(27, 483);
             this.tbMessageContent.Name = "tbMessageContent";
             this.tbMessageContent.Size = new System.Drawing.Size(435, 36);
             this.tbMessageContent.TabIndex = 13;
@@ -173,7 +169,7 @@
             // 
             // btSendMessage
             // 
-            this.btSendMessage.Location = new System.Drawing.Point(459, 493);
+            this.btSendMessage.Location = new System.Drawing.Point(459, 483);
             this.btSendMessage.Name = "btSendMessage";
             this.btSendMessage.Size = new System.Drawing.Size(119, 36);
             this.btSendMessage.TabIndex = 14;
@@ -181,15 +177,80 @@
             this.btSendMessage.UseVisualStyleBackColor = true;
             this.btSendMessage.Click += new System.EventHandler(this.btSendMessage_Click);
             // 
+            // lbChatContent
+            // 
+            this.lbChatContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbChatContent.FormattingEnabled = true;
+            this.lbChatContent.ItemHeight = 16;
+            this.lbChatContent.Location = new System.Drawing.Point(27, 291);
+            this.lbChatContent.Name = "lbChatContent";
+            this.lbChatContent.Size = new System.Drawing.Size(551, 196);
+            this.lbChatContent.TabIndex = 15;
+            this.lbChatContent.SelectedIndexChanged += new System.EventHandler(this.lbChatContent_SelectedIndexChanged);
+            // 
+            // lbAttachedFiles
+            // 
+            this.lbAttachedFiles.FormattingEnabled = true;
+            this.lbAttachedFiles.ItemHeight = 16;
+            this.lbAttachedFiles.Location = new System.Drawing.Point(162, 535);
+            this.lbAttachedFiles.Name = "lbAttachedFiles";
+            this.lbAttachedFiles.Size = new System.Drawing.Size(278, 84);
+            this.lbAttachedFiles.TabIndex = 16;
+            // 
+            // btLoadFile
+            // 
+            this.btLoadFile.Location = new System.Drawing.Point(27, 535);
+            this.btLoadFile.Name = "btLoadFile";
+            this.btLoadFile.Size = new System.Drawing.Size(116, 32);
+            this.btLoadFile.TabIndex = 17;
+            this.btLoadFile.Text = "Load File";
+            this.btLoadFile.UseVisualStyleBackColor = true;
+            this.btLoadFile.Click += new System.EventHandler(this.btLoadFile_Click);
+            // 
+            // btRemoveFile
+            // 
+            this.btRemoveFile.Location = new System.Drawing.Point(459, 535);
+            this.btRemoveFile.Name = "btRemoveFile";
+            this.btRemoveFile.Size = new System.Drawing.Size(116, 32);
+            this.btRemoveFile.TabIndex = 18;
+            this.btRemoveFile.Text = "Remove File";
+            this.btRemoveFile.UseVisualStyleBackColor = true;
+            this.btRemoveFile.Click += new System.EventHandler(this.btRemoveFile_Click);
+            // 
+            // lbMessageFiles
+            // 
+            this.lbMessageFiles.FormattingEnabled = true;
+            this.lbMessageFiles.ItemHeight = 16;
+            this.lbMessageFiles.Location = new System.Drawing.Point(602, 32);
+            this.lbMessageFiles.Name = "lbMessageFiles";
+            this.lbMessageFiles.Size = new System.Drawing.Size(227, 228);
+            this.lbMessageFiles.TabIndex = 19;
+            this.lbMessageFiles.SelectedIndexChanged += new System.EventHandler(this.lbMessageFiles_SelectedIndexChanged);
+            // 
+            // btDownloadFile
+            // 
+            this.btDownloadFile.Location = new System.Drawing.Point(835, 129);
+            this.btDownloadFile.Name = "btDownloadFile";
+            this.btDownloadFile.Size = new System.Drawing.Size(116, 32);
+            this.btDownloadFile.TabIndex = 20;
+            this.btDownloadFile.Text = "Download FIle";
+            this.btDownloadFile.UseVisualStyleBackColor = true;
+            this.btDownloadFile.Click += new System.EventHandler(this.btDownloadFile_Click);
+            // 
             // ChatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(605, 541);
+            this.ClientSize = new System.Drawing.Size(1156, 623);
+            this.Controls.Add(this.btDownloadFile);
+            this.Controls.Add(this.lbMessageFiles);
+            this.Controls.Add(this.btRemoveFile);
+            this.Controls.Add(this.btLoadFile);
+            this.Controls.Add(this.lbAttachedFiles);
+            this.Controls.Add(this.lbChatContent);
             this.Controls.Add(this.btSendMessage);
             this.Controls.Add(this.tbMessageContent);
-            this.Controls.Add(this.tbChatContent);
             this.Controls.Add(this.lbCurrentDialog);
             this.Controls.Add(this.lbParticipants);
             this.Controls.Add(this.label2);
@@ -225,9 +286,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lbParticipants;
         private System.Windows.Forms.Label lbCurrentDialog;
-        private System.Windows.Forms.RichTextBox tbChatContent;
         private System.Windows.Forms.RichTextBox tbMessageContent;
         private System.Windows.Forms.Button btSendMessage;
+        private System.Windows.Forms.ListBox lbChatContent;
+        private System.Windows.Forms.ListBox lbAttachedFiles;
+        private System.Windows.Forms.Button btLoadFile;
+        private System.Windows.Forms.Button btRemoveFile;
+        private System.Windows.Forms.ListBox lbMessageFiles;
+        private System.Windows.Forms.Button btDownloadFile;
     }
 }
 

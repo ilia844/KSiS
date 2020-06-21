@@ -82,6 +82,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileStoringService\FileStoringService.csproj">
+      <Project>{4a4c3c03-1150-4985-9355-24131a55c868}</Project>
+      <Name>FileStoringService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InteractionTools\InteractionTools.csproj">
       <Project>{c3d0960f-6ef7-4941-9f14-e1e6d524278e}</Project>
       <Name>InteractionTools</Name>
